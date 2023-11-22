@@ -1,4 +1,5 @@
 
+import Link from "next/link"
 import { API_URL } from "./config"
 
 
@@ -21,8 +22,15 @@ export default async function Home() {
   return (
     <main className="flex-col items-center justify-between p-24">
       {
-      usuarios.map(user =>(
-        <h1 key={user.id}>usuario</h1>
+      usuarios.map(({attributes, id}) =>(
+        <Link key={id} href="#">
+          <h1>
+          {attributes.Nombre}
+          </h1>
+          <h2>
+            {attributes.Apellido}
+          </h2><br></br>
+        </Link>
       )
       )}
     </main>
